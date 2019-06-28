@@ -1,0 +1,74 @@
+<Window x:Class="DZ4.UserWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:DZ4"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="User" Height="650" Width="1000">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250" />
+            <ColumnDefinition Width="400*" />
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" Background="CornflowerBlue">
+            <Label DockPanel.Dock="Top" HorizontalAlignment="Center" Foreground="White" FontSize="18" Content="Cart"
+                   Margin="5" Style="{StaticResource MaterialDesignLabel}" />
+            <DockPanel LastChildFill="True">
+                <Button DockPanel.Dock="Bottom" Name="MakeOrderButton" Content="Make order"
+                        Style="{StaticResource MaterialDesignRaisedButton}"
+                        Margin="5" Click="MakeOrderButton_OnClick" Visibility="Collapsed" />
+                <Button DockPanel.Dock="Bottom" Name="RemoveButton" Content="Remove"
+                        Style="{StaticResource MaterialDesignRaisedButton}"
+                        Margin="5" Click="RemoveButton_OnClick" Visibility="Collapsed" />
+                <ListView Name="CartItems" Style="{StaticResource MaterialDesignListView}"
+                          SelectionChanged="CartItems_OnSelectionChanged" SelectionMode="Single">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="{Binding Name}" Foreground="White"
+                                       Style="{StaticResource MaterialDesignLabel}" />
+                                <Label Content="{Binding Count}" Foreground="White"
+                                       Style="{StaticResource MaterialDesignLabel}"
+                                       HorizontalAlignment="Right" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </DockPanel>
+        </StackPanel>
+        <GridSplitter Grid.Column="0" Width="4" Style="{StaticResource MaterialDesignGridSplitter}" />
+        <DockPanel Grid.Column="1" LastChildFill="True">
+            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="10 10 0 0">
+                <ComboBox Name="CategoriesComboBox" Style="{StaticResource MaterialDesignComboBox}"
+                          materialDesign:HintAssist.Hint="Categories"
+                          SelectionChanged="CategoriesComboBox_OnSelectionChanged" />
+                <ComboBox Name="SubCategoriesComboBox" Style="{StaticResource MaterialDesignComboBox}"
+                          materialDesign:HintAssist.Hint="Subcategories"
+                          Margin="15 0 0 0" SelectionChanged="SubCategoriesComboBox_OnSelectionChanged" />
+            </StackPanel>
+            <Button Name="AddButton" DockPanel.Dock="Bottom" Content="Add to cart"
+                    Style="{StaticResource MaterialDesignRaisedButton}"
+                    Click="AddButton_OnClick" Visibility="Collapsed" Margin="10" />
+            <StackPanel Name="CountControlsStackPanel" Visibility="Collapsed" DockPanel.Dock="Bottom"
+                        Orientation="Horizontal" Margin="10">
+                <Label Name="ProductsCountLabel" Content="1" FontSize="17" Style="{StaticResource MaterialDesignLabel}" />
+                <Button Content="+" FontSize="15"
+                        Style="{StaticResource MaterialDesignFloatingActionMiniButton}" Margin="10 0 10 0"
+                        Click="IncreaseCountButton_OnClick" />
+                <Button Content="-" FontSize="15" Click="DecreaseCountButton_OnClick"
+                        Style="{StaticResource MaterialDesignFloatingActionMiniButton}" />
+            </StackPanel>
+            <DataGrid Name="ProductsDataGrid" Style="{StaticResource MaterialDesignDataGrid}"
+                      IsReadOnly="True" AutoGenerateColumns="False" SelectionUnit="FullRow" SelectionMode="Single"
+                      SelectionChanged="ProductsDataGrid_OnSelectionChanged">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                    <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
+                    <DataGridTextColumn Header="Price" Binding="{Binding Price}" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </DockPanel>
+    </Grid>
+</Window>

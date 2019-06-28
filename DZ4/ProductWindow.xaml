@@ -1,0 +1,26 @@
+<Window x:Class="DZ4.ProductWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:DZ4"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="ProductWindow" Height="450" Width="800">
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <TextBox Name="NameTextBox" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                 materialDesign:HintAssist.Hint="Name" Width="200"/>
+        <TextBox Name="DescriptionTextBox" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                 materialDesign:HintAssist.Hint="Description" Width="200" Margin="0 10 0 0"/>
+        <TextBox Name="PriceTextBox" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                 materialDesign:HintAssist.Hint="Price" Width="200" Margin="0 10 0 0"/>
+        <TextBox Name="CountTextBox" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                 materialDesign:HintAssist.Hint="Count" Width="200" Margin="0 10 0 0"/>
+        <ComboBox Name="SubcategoriesComboBox" Style="{StaticResource MaterialDesignComboBox}"
+                  materialDesign:HintAssist.Hint="Subcategory" Width="200" Margin="0 10 0 0"/>
+        <ComboBox Name="StoragesComboBox" Style="{StaticResource MaterialDesignComboBox}"
+                  materialDesign:HintAssist.Hint="Storage" Width="200" Margin="0 10 0 0"/>
+        <Button Content="Save" Style="{StaticResource MaterialDesignRaisedButton}" Margin="0 20 0 0"
+                Click="SaveButton_OnClick"/>
+    </StackPanel>
+</Window>

@@ -1,0 +1,32 @@
+<Window x:Class="DZ4.ManagerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="Manager" Height="450" Width="800">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="20">
+            <ComboBox Name="StatisticTypes" Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                      materialDesign:HintAssist.Hint="Statistic type" Width="200"
+                      SelectionChanged="StatisticTypes_OnSelectionChanged" />
+            <TextBox Name="SearchTextBox" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     materialDesign:HintAssist.Hint="Product name" Margin="10 0 0 0" Visibility="Collapsed" Width="200"
+                     TextChanged="SearchTextBox_OnTextChanged" />
+        </StackPanel>
+        <DataGrid Name="ProductsDataGrid" Style="{StaticResource MaterialDesignDataGrid}" IsReadOnly="True"
+                  AutoGenerateColumns="False" SelectionMode="Single" SelectionUnit="FullRow">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
+                <DataGridTextColumn Header="Price" Binding="{Binding Price}" />
+                <DataGridTextColumn Header="Count" Binding="{Binding Count}" />
+                <DataGridTextColumn Header="CountInOrders" Binding="{Binding CountInOrders}"
+                                    Visibility="Collapsed" />
+                <DataGridTextColumn Header="CountInCarts" Binding="{Binding CountInCarts}"
+                                    Visibility="Collapsed" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </DockPanel>
+</Window>

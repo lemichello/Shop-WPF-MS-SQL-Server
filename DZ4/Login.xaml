@@ -1,0 +1,21 @@
+﻿<Window x:Class="DZ4.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Login" Height="450" Width="600"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}">
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <TextBox Name="LoginTextBox" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="200"
+                 materialDesign:HintAssist.Hint="Login" />
+        <PasswordBox Name="PasswordTextBox" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Width="200"
+                     materialDesign:HintAssist.Hint="Password" Margin="0 10 0 0" />
+        <Button Style="{StaticResource MaterialDesignRaisedButton}" Content="Enter"
+                Margin="0 10 0 0" Click="EnterButton_OnClick" IsDefault="True" />
+        <Button Style="{StaticResource MaterialDesignRaisedButton}" Content="Register"
+                Margin="0 10 0 0" Click="RegisterButton_OnClick" />
+    </StackPanel>
+</Window>
