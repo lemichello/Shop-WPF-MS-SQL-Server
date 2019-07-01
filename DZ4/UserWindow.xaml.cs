@@ -162,6 +162,9 @@ namespace DZ4
 
             _cartProducts.Remove(selectedProduct);
             RemoveProductFromCart(selectedProduct);
+
+            if (_cartProducts.Count == 0)
+                MakeOrderButton.Visibility = Visibility.Collapsed;
         }
 
         private void RemoveProductFromCart(Product selectedProduct)
